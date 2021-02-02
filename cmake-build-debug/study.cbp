@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="study"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/bskqd/CLionProjects/study/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/bskqd/CLionProjects/study/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/bskqd/CLionProjects/study/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="study">
+				<Option output="/home/bskqd/CLionProjects/study/cmake-build-debug/study" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bskqd/CLionProjects/study/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/10"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 study"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="study/fast">
+				<Option output="/home/bskqd/CLionProjects/study/cmake-build-debug/study" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bskqd/CLionProjects/study/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/10"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/10"/>
+					<Add directory="/usr/include/c++/10/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/10/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 study/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/bskqd/CLionProjects/study/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/bskqd/CLionProjects/study/0.1.8.cpp">
+			<Option target="study"/>
+		</Unit>
+		<Unit filename="/home/bskqd/CLionProjects/study/0.2.11.cpp">
+			<Option target="study"/>
+		</Unit>
+		<Unit filename="/home/bskqd/CLionProjects/study/dz_1_z_11.cpp">
+			<Option target="study"/>
+		</Unit>
+		<Unit filename="/home/bskqd/CLionProjects/study/dz_1_z_4.cpp">
+			<Option target="study"/>
+		</Unit>
+		<Unit filename="/home/bskqd/CLionProjects/study/main.cpp">
+			<Option target="study"/>
+		</Unit>
+		<Unit filename="/home/bskqd/CLionProjects/study/new_file.cpp">
+			<Option target="study"/>
+		</Unit>
+		<Unit filename="/home/bskqd/CLionProjects/study/task_3.cpp">
+			<Option target="study"/>
+		</Unit>
+		<Unit filename="/home/bskqd/CLionProjects/study/task_4.cpp">
+			<Option target="study"/>
+		</Unit>
+		<Unit filename="/home/bskqd/CLionProjects/study/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

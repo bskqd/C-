@@ -1,0 +1,3 @@
+/home/bskqd/CLionProjects/study/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/bskqd/CLionProjects/study/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/bskqd/CLionProjects/study/cmake-build-debug/CMakeFiles/study.dir

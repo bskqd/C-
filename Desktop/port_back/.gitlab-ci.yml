@@ -1,0 +1,90 @@
+image: alpine
+stages:
+  - test-req
+  - deploy
+test-req-basic.img:
+  stage: test-req
+  retry: 
+  image:  git.disoft.us:5050/itcs/ac-back:basic
+  environment:
+    name: $CI_COMMIT_BRANCH
+  script:
+    - apt-get update
+    - apt-get install -yqq $(cat DEV-etc/basic-img/dpkg_requirements.txt)
+    - pip3 install --no-cache-dir -r requirements.txt
+  artifacts:
+    paths:
+      - ./
+deploy-stg:
+  image: alpine
+  stage: deploy
+  script:
+    - apk add --no-cache rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - echo "make backups"
+    - ssh -p $DPL_PORT root@$DPL_SERVER "bash $DIR/DEV-etc/backup_before_update.sh $DIR"
+    - echo "copy source code"
+    - rsync  -e "ssh -p $DPL_PORT" -rav  --delete ./ root@$DPL_SERVER:$DIR/
+    - echo "copy instal requirements"
+    - ssh -p $DPL_PORT root@$DPL_SERVER "
+      source $DIR_env/bin/activate;
+      cd $DIR;
+      echo -e '$ENV' > .env;
+      echo -e "PROJECT_ENV=$CI_COMMIT_BRANCH" >> .env;
+      echo '$ENV';
+      cat .env;
+      echo $0 > test;
+      pip3 install -r requirements.txt;"
+    - echo "copy run migrate"
+    - ssh -p $DPL_PORT root@$DPL_SERVER "  
+      source $DIR_env/bin/activate;
+      cd $DIR;    
+      python3 manage.py migrate;python3 manage.py migrate;"
+    - echo "restart services"
+    - ssh -p $DPL_PORT root@$DPL_SERVER "
+      systemctl daemon-reload;
+      systemctl restart celery.service port-back.service;"
+  environment:
+    name: $CI_COMMIT_BRANCH
+  only:
+    - stg
+    - dev
+
+deploy-prod:
+  image: alpine
+  stage: deploy
+  when: manual
+  script:
+    - apk add --no-cache rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - echo "make backups"
+    - ssh -p $DPL_PORT root@$DPL_SERVER "bash $DIR/DEV-etc/backup_before_update.sh $DIR"
+    - echo "copy source code"
+    - rsync  -e "ssh -p $DPL_PORT" -rav  --delete ./ root@$DPL_SERVER:$DIR/
+    - echo "copy instal requirements"
+    - ssh -p $DPL_PORT root@$DPL_SERVER "
+      source $DIR_env/bin/activate;
+      cd $DIR;
+      echo -e '$ENV' > .env;
+      echo -e "PROJECT_ENV=$CI_COMMIT_BRANCH" >> .env;
+      echo $0 > test;
+      pip3 install -r requirements.txt;"
+    - echo "copy run migrate"
+    - ssh -p $DPL_PORT root@$DPL_SERVER "  
+      source $DIR_env/bin/activate;
+      cd $DIR;    
+      python3 manage.py migrate;python3 manage.py migrate communication --database communication"
+    - echo "restart services"
+    - ssh -p $DPL_PORT root@$DPL_SERVER "
+      systemctl daemon-reload;
+      systemctl restart celery.service port-back.service;"
+  environment:
+    name: $CI_COMMIT_BRANCH
+  only:
+    - master

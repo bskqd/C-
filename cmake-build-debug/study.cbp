@@ -82,12 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/bskqd/CLionProjects/study/0.1.8.cpp">
-			<Option target="study"/>
-		</Unit>
-		<Unit filename="/home/bskqd/CLionProjects/study/0.2.11.cpp">
-			<Option target="study"/>
-		</Unit>
 		<Unit filename="/home/bskqd/CLionProjects/study/dz_1_z_11.cpp">
 			<Option target="study"/>
 		</Unit>

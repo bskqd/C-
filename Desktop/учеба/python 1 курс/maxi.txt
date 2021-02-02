@@ -1,0 +1,16 @@
+n=int(input())
+a=[float(d) for d in input().split()]
+c=a[1::2]
+maxi=-95984631096502946512356120945612561265012365
+for i in c:
+    if i>maxi:
+        maxi=i
+print(maxi)
+    
+
+
+    
+
+
+
+

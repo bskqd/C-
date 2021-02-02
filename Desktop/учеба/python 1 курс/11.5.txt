@@ -1,0 +1,21 @@
+N=int(input())
+T3=0
+T2=1
+T1=1
+for k in range(3,N+1):
+    T1,T2,T3=T1+T2+T3,T1,T2
+print(T1)
+
+
+N=int(input())
+P3=1
+P2=1
+P1=1
+for k in range(3,N+1):
+    P1,P2,P3=P2+P3,P1,P2
+print(P1)
+    
+    
+
+
+    

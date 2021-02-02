@@ -1,0 +1,15 @@
+[Unit]
+Description=Welcome to your nightmares, dev
+[Service]
+Type=forking
+ExecStartPre=/bin/mkdir -p /var/log/ac-back/
+ExecStartPre=-/bin/chown -R www-data:www-data /var/log/ac-back/
+ExecStart=/usr/venvs/ac-back/bin/uwsgi --ini /usr/apps/ac-back/DEV-etc/uwsgi.ini --logto /var/log/ac-back/itcs.log 
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=main
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

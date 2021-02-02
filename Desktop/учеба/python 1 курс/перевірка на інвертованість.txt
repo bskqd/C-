@@ -1,0 +1,6 @@
+def inv(s):
+    if len(s)<=1:
+        return s
+    else:
+        return s[-1]+inv(s[:-1])
+print(inv('abcd'))

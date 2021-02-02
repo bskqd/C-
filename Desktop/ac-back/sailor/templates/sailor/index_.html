@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"
+            integrity="sha256-qs5p0BFSqSvrstBxPvex+zdyrzcyGdHNeNmAirO2zc0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
+          integrity="sha256-QVBN0oT74UhpCtEo4Ko+k3sNo+ykJFBBtGduw13V9vw=" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/api.min.js"
+            integrity="sha256-und4HgOg2CxzBcqdJOvcT9LfJx0Hf9xQmEO/u7r1Ync=" crossorigin="anonymous"></script>
+    {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/search.min.js"></script>#}
+</head>
+<body>
+<p>Тип документа:</p>
+<select id="type_document_main" onchange="onSelectMainTypeDocument()">
+    <option value="deaplom">Диплом или сертифікат компетентності/рабочий диплом</option>
+    <option value="apple_deaplom">Підтвердження (Endorsement) до диплома/робочего</option>
+    {#    Образованиек#}
+    <option value="educ_deap">Диплом про вищу освіту</option>
+    <option value="upper_qual">Свідоцтво про підвищення кваліфікації</option>
+
+    <option value="medical">Чинне свідоцтво про придатність за станом</option>
+    <option value="NTZ">NTZ</option>
+</select>
+<div class="ui search">
+    <input class="prompt" style="width: 600px" type="text" placeholder="Common passwords...">
+    <div class="results"></div>
+</div>
+<label>Search response
+    <input type="text" width="200" id="rresponseinput">
+</label>
+<select id="type_vnz" multiple="multiple" size="10">
+    {#    <option value="">None</option>#}
+    <option value="1">молодший спеціаліст</option>
+    <option value="2">бакалавр</option>
+    <option value="3">спеціаліст</option>
+    <option value="4">магістр</option>
+</select>
+
+<button class="btn button" onclick="sendData()">Send</button>
+<br>
+<label>
+    <textarea id="response-finish" rows="20" cols="100">
+
+    </textarea>айди зависимости
+</label>
+<p style="color: red; font-size: 18px; display: none" id="error">Что то пошло не так !!!!!!!!!!!!!!!!!!!!!!</p>
+<script>
+    let doc_type = $('#type_document_main').val();
+
+    function onSelectMainTypeDocument() {
+        doc_type = $('#type_document_main').val();
+        console.log(doc_type);
+        let search = $('.search')
+            .search({
+                minCharacters: 3,
+                selectFirstResult: true,
+                maxResults: 30,
+                onSelect: function (result, response) {
+                    console.log(result);
+                    console.log(response);
+                    $('#rresponseinput').val(JSON.stringify(result));
+                },
+                apiSettings: {
+                    onResponse: function (data) {
+                        var maxResults = 30;
+                        var
+                            response = {
+                                results: []
+                            }
+                        ;
+                        //   // translate GitHub API response to work with search
+                        $.each(data, function (index, item) {
+                            {#console.log(item);#}
+                            if (index >= maxResults) {
+                                return false;
+                            }
+                            if (doc_type === 'deaplom' || doc_type === 'apple_deaplom') {
+                                response.results.push({
+                                    title: item.rank,
+                                    description: JSON.stringify(item.positions) || '',
+                                    // url         : 'https://www.google.com/',
+                                    //   id: item.id
+                                });
+                            }
+                            if (doc_type === 'educ_deap' || doc_type === 'upper_qual' || doc_type === 'medical' || doc_type === 'NTZ') {
+                                response.results.push({
+                                    title: item.name_ukr,
+                                    description: item.id || '',
+                                    // url         : 'https://www.google.com/',
+                                    //   id: item.id
+                                });
+                            }
+
+                        });
+                        {#console.log(response);#}
+                        return response;
+                    },
+                    url: '../search/query={query}/doc=' + doc_type + '/',
+                }
+            })
+        ;
+    }
+
+    onSelectMainTypeDocument();
+
+    function sendData() {
+        let doc_type = $('#type_document_main').val();
+        let response_search = $('#rresponseinput').val();
+        let data;
+        if (doc_type == 'NTZ') {
+            let json_value = JSON.parse(response_search);
+            data = {'NTZ_value': json_value.description, 'type_doc': doc_type};
+        } else if (doc_type == 'medical') {
+            let json_value = JSON.parse(response_search);
+            data = {'medical_value': json_value.description, 'type_doc': doc_type};
+        } else if (doc_type == 'upper_qual') {
+            let json_value = JSON.parse(response_search);
+            data = {'upper_qual': json_value.description, 'type_doc': doc_type};
+        } else if (doc_type == 'educ_deap') {
+            let json_value = JSON.parse(response_search);
+            let extent = $('#type_vnz').val();
+            console.log(json_value);
+            console.log(extent);
+            data = {'type_doc': doc_type, 'extent': JSON.stringify(extent), 'speciality': json_value.description};
+        } else if (doc_type == 'apple_deaplom' || doc_type == 'deaplom') {
+            let json_value = JSON.parse(response_search);
+            let description = JSON.parse(json_value.description);
+            let list_id_positions = [];
+            for (let i = 0; i < description.length; i++) {
+                list_id_positions.push(description[i].id);
+            }
+            data = {'type_doc': doc_type, 'deaplom_value': JSON.stringify(list_id_positions)};
+        }
+
+        $.ajax({
+            url: '../get_data/',
+            type: 'POST',
+            data: data,
+            success: function (data) {
+                console.log(data);
+                $('#response-finish').text(JSON.stringify(data));
+                $('#error').hide();
+            },
+            error: function (err) {
+                $('#error').show();
+            }
+        })
+    }
+</script>
+{#<input>#}
+</body>
+</html>
+

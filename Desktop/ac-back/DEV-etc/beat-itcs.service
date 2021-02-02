@@ -1,0 +1,15 @@
+[Unit]
+Description=Beat Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/usr/apps/ac-back/
+ExecStartPre=/bin/mkdir -p /tmp/celery/pid/
+ExecStartPre=/bin/chown www-data:www-data -R /tmp/celery/
+ExecStart=/bin/sh -c '/usr/venvs/ac-back//bin/celery beat -A itcs --pidfile=/tmp/celery/pid/beat-itcs.pid --logfile=/var/log/ac-back/beat.log --loglevel=INFO'
+
+[Install]
+WantedBy=multi-user.target

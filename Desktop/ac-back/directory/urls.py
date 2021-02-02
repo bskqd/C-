@@ -1,0 +1,52 @@
+from django.urls import path
+from rest_framework import routers
+
+from . import views
+
+router = routers.SimpleRouter()
+router.register('ntz', views.NTZViewset)
+router.register('country', views.CountryViewset)
+router.register('region', views.RegionViewset)
+router.register('city', views.CityViewset)
+router.register('rank', views.RankViewset)
+router.register('responsibility', views.ResponsibilityViewset, basename='responsibility')
+router.register('position', views.PositionViewset)
+router.register('status_document', views.StatusDocumentViewset)
+router.register('port', views.PortVieset)
+router.register('branch_office', views.BranchOfficeViewset)
+router.register('medical_institution', views.MedicalInstitutionViewset)
+router.register('doctor_in_medical', views.DoctorInMedicalViewset)
+router.register('position_for_medical', views.PositionForMedicalViewset)
+router.register('position_for_experience', views.PositionForExperienceViewset)
+router.register('type_document_nz', views.TypeDocumentNZViewset)
+router.register('extent_nz', views.ExtentViewset)
+router.register('speciality', views.SpecialityViewset)
+router.register('specialization', views.SpecializationViewset)
+router.register('level_qualification', views.LevelQualitifcationViewset)
+router.register('name_nz', views.NameNZViewset)
+router.register('limitation', views.LimitationsViewset)
+router.register('auth_users', views.AuthorizatedUsersViewset)
+router.register('type_document_qual', views.TypeDocumentViewset)
+router.register('type_document', views.TypeDocumentViewset)
+router.register('commisioner_for_committe', views.CommisionerForCommitteViewset)
+router.register('course_for_ntz', views.CourseForNTZViewset)
+router.register('decision', views.DecisionViewset)
+router.register('functions_for_position', views.FunctionAndLevelForPositionViewset)
+router.register('function_for_position', views.FunctionAndLevelForPositionViewset)
+router.register('type_rank', views.TypeRankViewset)
+router.register('direction', views.DirectionViewset)
+router.register('education_form', views.EducationFormViewset)
+router.register('faculty', views.FacultyViewset)
+router.register('sex', views.SexViewset)
+router.register('type_contact', views.TypeContactViewset)
+router.register('type_vessel', views.TypeVesselViewset, basename='type_vessel')
+router.register('mode_of_navigation', views.ModeOfNavigationViewset, basename='mode_of_navigation')
+router.register('type_geu', views.TypeGeuViewset, basename='type_geu')
+router.register('responsibility_work_book', views.ResponsibilityWorkBookViewset, basename='responsibility_work_book')
+router.register('type_of_accrual_rules', views.TypeOfAccrualRulesView)
+router.register('verification_stage', views.VerificationStageViewset)
+
+urlpatterns = [
+    path('all_commissioners/', views.AllCommissionersViews.as_view())
+]
+urlpatterns += router.urls

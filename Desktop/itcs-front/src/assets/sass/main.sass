@@ -1,0 +1,738 @@
+// Template
+@import './molecules/molecules'
+.router
+  padding-top: 100px
+.inputSearch
+  padding: 8px
+  input
+    height: 44px
+    padding-left: 48px
+    padding-right: 20px
+    border-radius: 20px
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  .search-icon--seafarer
+    margin-top: 15px
+    margin-left: 33px
+
+
+
+body
+  background: #f8f8f8!important
+  min-width: 1550px
+.w-full
+  width: 100%!important
+  text-align: left
+.w-10
+  width: 10%
+  padding: 0px 15px
+  position: relative
+.w-15
+  width: 15%
+  padding: 0px 15px
+  position: relative
+.w-16
+  width: 16.66%
+  padding: 0px 15px
+  position: relative
+.w-20
+  width: 20% !important
+  padding: 0px 15px
+  position: relative
+.w-25
+  width: 25%
+  padding: 0px 15px
+  position: relative
+.w-30
+  width: 30%
+  padding: 0px 15px
+  position: relative
+.w-33
+  width: 33.333%!important
+  padding: 0px 15px
+  position: relative
+.w-40
+  width: 40%
+  padding: 0px 15px
+  position: relative
+.w-50
+  width: 50%
+  padding: 0px 15px
+  position: relative
+.w-70
+  width: 70%
+  padding: 0px 15px
+  position: relative
+  .input-span-placeholder
+    padding-left: 20px!important
+    margin-left: 20px
+.w-80
+  width: 80%
+  padding: 0px 15px
+  position: relative
+.w-90
+  width: 90%
+  padding: 0px 15px
+  position: relative
+.w-100
+  width: 100%
+  padding: 0px 15px
+  position: relative
+.p-15
+  padding: 15px
+.vx-card
+  border-radius: 10px!important
+  box-shadow: none!important
+  background: #fff
+  border-radius: 5px
+  box-shadow: -8px 12px 18px 0 rgba(25, 42, 70, 0.13)!important
+  .img-container
+    max-height: 170px
+  &-plus
+    display: flex
+    justify-content: center
+    padding: 20px
+    svg
+      width: 50px
+      height: 50px
+      stroke: #00d800
+.card
+  border-radius: 10px
+  margin-top: 30px
+  a
+    color: #888!important
+  .vx-row
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+  &-body
+    padding: 0px
+  &-header
+    padding: 15px
+    border-bottom: 1px solid #ccc
+    margin-bottom: 15px
+.shadow
+  padding: 5px
+  border: 1px solid #000
+.align-items-flex-start
+  align-items: flex-start
+.aic
+  align-items: center
+.justify-content
+  &-flex-start
+    justify-content: flex-start
+  &-flex-end
+    justify-content: flex-end
+    .btn
+      margin-left: 0!important
+      margin-right: 0!important
+  &-sb
+    justify-content: space-between
+.header
+  &-right
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    height: 62px
+    button
+      height: 62px
+      padding-top: 0!important
+  &-sidebar
+    svg
+      .cls-1
+        stroke-width: 0.25px
+        fill: #4e8cff!important
+.v-nav-menu .vs-sidebar--item
+  margin-bottom: 2px!important
+  &.active
+    background: linear-gradient(130deg, #4e8cff, #89adf0bf)
+    box-shadow: 0px 0px 10px 1px #4e8cff
+    margin: 10px 0
+  span
+    text-overflow: ellipsis
+    max-width: 163px
+    overflow: hidden
+.topbar-notification
+  &.active
+    background: linear-gradient(130deg, #4e8cff, #89adf0bf)
+    border-radius: 50%
+    box-shadow: 0px 0px 10px 1px #4e8cff
+    width: 30px
+    height: 30px
+    padding: 5px
+    fill: #fff
+
+// End Template
+
+// Typography
+
+a
+  color: #000
+  text-decoration: none
+h5
+  padding-left: 15px
+.text-bold-300
+  color: #888
+
+.text-invalid
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  justify-content: center
+  width: 100%
+  position: absolute
+  bottom: -38px
+  margin: 0 !important
+  &--text
+    color: red
+    box-shadow: 0 0 10px #ccc
+    padding: 3px 8px
+    background: #fff
+    border-radius: 5px
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    justify-content: center
+    z-index: 3
+    white-space: nowrap
+    span
+      position: relative
+      z-index: 99
+    &:before
+      content: ''
+      width: 12px
+      height: 12px
+      background: #fff
+      margin: 0 auto
+      position: absolute
+      margin-top: -10px
+      transform: rotate(45deg)
+      border-left: 1px solid #eee
+      border-top: 1px solid #eee
+
+.search-icon--page
+  position: absolute
+  margin-top: 0
+  margin-left: 13px
+  z-index: 3
+// End Typography
+
+// Elements
+
+.vx-logo
+  a
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    justify-content: center
+  &.vx-logo-text
+    color: #4e8cff!important
+.btn-success
+  width: 25% !important
+  margin-bottom: 25px !important
+.text-danger-phone
+  position: absolute
+  background: #fff
+  color: #FF5B5C !important
+  border: 1px solid #ccc
+  box-shadow: 0 0 10px #ccc
+  padding: 3px 10px
+  z-index: 10
+  margin-left: calc(50% - 141px)
+  margin-right: calc(50% - 141px)
+  white-space: nowrap
+  width: 282px
+  border-radius: 4px
+  font-weight: bold
+  font-size: 13px
+  span
+    display: block
+    position: relative
+    z-index: 11
+  &:after
+    content: ''
+    width: 15px
+    height: 15px
+    background: #fff
+    border-left: 1px solid #ccc
+    border-top: 1px solid #ccc
+    display: block
+    top: -8px
+    left: calc(50% - 7.5px)
+    transform: rotate(45deg)
+    position: absolute
+.text-danger
+  display: block
+  padding: 3px 10px
+  background: #fff
+  width: 130px
+  height: 27px
+  left: calc(50% - 55px)
+  right: calc(50% - 55px)
+  border-radius: 4px
+  border: 1px solid #ccc
+  box-shadow: 0 0 10px #ccc
+  font-weight: bold
+  bottom: -40px
+  z-index: 10
+  text-align: center
+  font-size: 13px
+  padding-top: 6px
+  &:after
+    content: ''
+    width: 15px
+    height: 15px
+    background: #fff
+    border-left: 1px solid #ccc
+    border-top: 1px solid #ccc
+    display: block
+    top: -8px
+    left: calc(50% - 7.5px)
+    transform: rotate(45deg)
+    position: absolute
+.ellipsis
+  white-space: nowrap
+  overflow: hidden
+  max-width: 200px
+  text-overflow: ellipsis
+  transition: all .5s
+  &:hover
+    height: auto !important
+  &:hover
+    color: #4e8cff!important
+.preview-photo
+  width: 100%
+.navbar-default
+  height: 62px!important
+  .userName
+    div
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      align-items: flex-end
+      flex-direction: column
+      padding-top: 15px
+      padding-left: 20px
+      padding-right: 20px
+      height: 47px
+    &-name
+      color: #666 !important
+      font-size: 18px
+      font-weight: bold
+      line-height: 1
+      padding-top: 10px
+    &-login
+      color: #000 !important
+      font-weight: 100
+    button
+      span
+        // display: block
+        margin-top: -14px
+        margin-bottom: 12px
+.camera-card
+  position: fixed
+  right: 0
+  height: 100vh
+  width: 50%
+  top: 0
+  z-index: 10
+  margin-top: 0 !important
+  overflow: auto
+.form-group
+  margin-top: 0 !important
+.vs-input--placeholder
+  top: 4px!important
+  left: -20px!important
+.custom-file-label
+  height: 35px
+  overflow: hidden
+.multiselect__tags
+  border-color: #ccc!important
+  border-radius: 10px!important
+.permissionChoice
+  padding: 15px
+  &Content
+    padding: 15px
+    border: 1px solid #ccc
+    border-radius: 10px
+input:read-only
+  border: none !important
+.vs-input.input-rounded-full .input-span-placeholder
+  padding-top: 1rem!important
+.vs-input.input-rounded-full .vs-icon
+  padding-top: .3rem!important
+.vs-input.input-rounded-full .vs-input--input.hasIcon
+  padding: 11px 20px!important
+.phone-input-lib
+  border-radius: 10px !important
+  border-color: #ccc!important
+.form-control
+  background: none!important
+  border: 1px solid #ccc!important
+  border-radius: 10px!important
+  &:focus
+    border-color: #4e8cff!important
+  .multiselect
+    border-radius: 10px
+    input
+      border: 0 !important
+.search-block
+  height: 62px
+  padding-top: 9px
+  .feather-search
+    position: absolute
+    z-index: 3
+    top: 14px
+    width: 16px
+    height: 16px
+    left: 17px
+    stroke: #999
+.search-result
+  margin-top: 0!important
+  position: absolute
+  top: 50px
+  left: -30px
+  border-top-left-radius: 0
+  border-top-right-radius: 0
+  border-bottom-left-radius: 0
+  width: calc(100% + 60px)
+.truncate
+  text-align: left
+.feather-icon svg
+  width: 15px!important
+  height: 15px!important
+  padding: 6px 0 4px 0
+.input-group, .input-rounded-full
+  position: relative
+.input-rounded-full
+  padding: .8rem 1rem 0.8rem 3rem !important
+  border-radius: 2rem
+  border: 1px solid #cccccc
+.vs-input--input.hasIcon:not(.icon-after-input) + .vs-input--placeholder
+  padding-left: 4rem!important
+  left: 0px!important
+.search-icon
+  color: #888
+  margin-left: 15px
+  top: 8px !important
+  left: 5px !important
+  &--seafarer
+    margin-left: 34px
+    margin-top: 14px
+    z-index: 3
+    position: absolute
+  svg
+    fill: #fff!important
+.date-icon
+  color: #888
+  margin-left: 15px
+  top: 0px !important
+  right: 5px !important
+  &--seafarer
+    margin-right: 27px
+    margin-top: 2px
+    z-index: 3
+    position: absolute
+  svg
+    fill: #fff!important
+.custom-file-label
+  border-radius: 10px
+  border-color: #ccc !important
+.dropdown-toggle
+  padding-top: 10px!important
+// End Elements
+
+// Sailor
+.btn-remove
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  align-items: center
+  margin: 5px 0
+  button
+    background: none
+    border: 0
+    color: #ff2f2f
+    margin-left: 10px
+
+.avatar
+  max-width: 150px
+  margin: 0px 20px
+  margin-right: 50px
+  background: none
+  border-radius: 0
+  width: 100%
+  img
+    display: block
+.pageList
+  .multiselect__placeholder
+    padding-left: 10px
+  b
+    margin-bottom: 7px
+.seafareMainInfo
+  &Avatar
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    align-items: center
+    height: 100%
+  &Title
+    padding-left: 15px
+    font-size: 22px
+    font-weight: bold
+    color: #666
+.seafarerItem
+  min-height: 212px
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  align-items: center
+  .vx-row
+    width: 100%
+.seafarerInfo
+  width: 100%
+  align-items: center
+  display: flex
+  margin-right: 50px
+  flex-direction: column
+  justify-content: center
+  align-items: flex-start
+  .vx-row
+    width: 100%
+    display: flex
+    justify-content: space-between
+  &-item
+    display: flex
+    flex-direction: column
+    padding-bottom: 15px
+    font-size: 24px
+    text-align: left
+    line-height: 1.2
+    color: #444
+    width: 25%
+    padding: 0px 10px
+    position: relative
+    input
+      width: 100%
+    &:first-child
+      padding-left: 0
+    label
+      color: #888
+    &:first-child
+      margin-left: 15px
+    span
+      font-size: 16px
+  &-name
+    font-size: 24px
+    font-weight: bold
+    color: #666
+    margin-left: 0!important
+.seafarerInfoList, .pageList
+  display: flex
+  flex-wrap: wrap
+  padding: 0px 15px
+  justify-content: flex-start
+  align-items: flex-start
+  &.parrentMb-0
+    >div
+      margin-bottom: 0!important
+  >div
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    width: 100%
+    color: #475F7B
+    font-size: 1rem!important
+    font-weight: 400
+    margin-bottom: 10px
+    padding: 0px 15px
+    min-height: 33px
+    position: relative
+    span
+      font-size: 1rem !important
+    input:read-only
+      padding: 0
+    .multiselect__tags
+      padding-left: 10px !important
+    b
+      color: #475F7B
+      font-weight: 600
+      margin-right: 10px
+      white-space: nowrap
+    .btn
+      margin: 0 auto
+      margin-top: 10px
+.tabs
+  thead
+    td
+      span
+        white-space: nowrap
+table
+  max-width: 100%
+  .columnheader
+    padding: 10px 0
+  tr
+    &:hover
+      cursor: pointer
+      >.ellipsis
+        text-overflow: clip
+        white-space: normal
+  svg
+    stroke: #4e8cff!important
+    cursor: pointer
+  thead
+    line-height: 20px
+    th
+      text-align: center
+      white-space: nowrap
+  tbody
+    tr
+      transition: all .5s
+      &.b-table-details
+        background-color: #fff!important
+      &:nth-child(2n+1)
+        background-color: #4e8cff07 !important
+      &:hover
+        background-color: #4e8cff25 !important
+      tr
+        border-bottom: 1px solid #DFE3E7!important
+      td
+        padding: 15px!important
+        border-bottom: 0!important
+.required-field-star
+  color: red
+  span
+    position: absolute
+    top: 9px
+    left: 15px
+    color: #888
+    z-index: 1
+.table
+  &Number, &Date, &Status
+    width: 50px
+  &ActionThree
+    width: 50px
+// End Sailor
+
+// b-calendar
+.b-form-datepicker
+  .bi-circle-fill
+    circle
+      r: 6!important
+  button
+    margin-top: 0!important
+    svg
+      stroke: #727e8c!important
+  label
+    text-transform: none
+    border: 0px!important
+  header
+    output
+      padding: 4px 0 !important
+  .b-calendar-nav
+    button
+      padding-top: 8px!important
+      padding-bottom: 8px!important
+  .font-weight-bold
+    font-weight: bold !important
+.b-calendar
+  .mx-1, .my-1, .mb-1
+    margin: 0 !important
+  footer
+    margin-top: 5px
+    padding: 2px 0
+    background: #f8f9fa!important
+  header
+    font-size: 17px
+  .form-control
+    height: auto!important
+    overflow: hidden
+.b-calendar-grid-body
+ .btn
+   width: 32px
+   height: 32px
+   padding: 5px 0
+   text-align: center
+input::-webkit-inner-spin-button, input::-webkit-calendar-picker-indicator
+  display: none
+input
+  -moz-appearance: textfield
+.btn-secondary.dropdown-toggle
+  background: none!important
+.multiselect__tags-wrap
+  width: 100%
+.multiselect__single
+  border-radius: 10px!important
+.multiselect__content-wrapper
+  padding-top: 10px !important
+.dropdown-menu-right[x-placement="top-end"]
+  &::before
+    bottom: -7px!important
+    top: auto
+    right: 15px
+    transform: rotate(-136deg)
+.position-relative
+  position: relative
+img
+  max-width: 100%
+a[aria-selected="true"]
+  svg
+    path
+      fill: #fff!important
+th[aria-sort="ascending"], th[aria-sort="descending"]
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  justify-content: center
+.dropzone
+  .dz-progress
+    display: none
+  .dz-remove
+    color: #fff !important
+.deleted-document
+  &-block
+    width: 100%
+    position: relative
+    max-width: 400px
+    margin: 0 32px
+  &-icon
+    z-index: 9999
+    position: absolute
+    right: -35px
+  &-name
+    width: 400px
+    text-align: center
+  &-text
+    position: absolute
+    bottom: 0
+    right: 0
+    background-color: #000
+    color: #fff
+    font-weight: bold
+    text-transform: uppercase
+    padding: 4px 8px
+.experience-status
+  width: max-content
+  white-space: pre-line !important
+.numberColumn
+  max-width: 100px
+.card
+  margin-bottom: 10px !important
+.card-body
+  padding: 0 10px !important
+.card-header
+  border-bottom: solid 2px rgb(223, 227, 231) !important
+.v-application
+  ul
+    padding: 0
+
+.documentIconControl
+  min-width: 275px
+  margin-left: 35px
+
+.sailorProfilePage
+  .table-responsive
+    overflow: visible

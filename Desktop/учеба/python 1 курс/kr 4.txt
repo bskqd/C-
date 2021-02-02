@@ -1,0 +1,16 @@
+s=input()
+l=10*[0]
+for i in range(len(s)):
+    if s[i] in '1234567890' :
+        l[int(s[i])]+=1
+for k in range(len(l)):
+    if l[k]==2:
+        print(k)
+        
+
+    
+
+
+
+
+

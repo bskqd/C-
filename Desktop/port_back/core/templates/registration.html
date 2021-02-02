@@ -1,0 +1,18 @@
+{% extends 'invite.html' %}
+
+{% block content %}
+
+<div>
+    <h2><b>The invitation to port control</b></h2><br>
+    <p>Username: <b>{{ username }}</b></p>
+    <p>Password: <b>{{ password }}</b></p>
+    <p>
+        Regards, <br>
+        Port control team
+    </p>
+    <div class="link">
+        <a href="{{ url }}">Go to</a>
+    </div>
+</div>
+
+{% endblock content %}

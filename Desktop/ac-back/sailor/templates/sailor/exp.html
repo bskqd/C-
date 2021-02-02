@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"
+            integrity="sha256-qs5p0BFSqSvrstBxPvex+zdyrzcyGdHNeNmAirO2zc0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
+          integrity="sha256-QVBN0oT74UhpCtEo4Ko+k3sNo+ykJFBBtGduw13V9vw=" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/api.min.js"
+            integrity="sha256-und4HgOg2CxzBcqdJOvcT9LfJx0Hf9xQmEO/u7r1Ync=" crossorigin="anonymous"></script>
+    {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/search.min.js"></script>#}
+</head>
+<body>
+<p>Стаж больше или меньше:</p>
+<select id="znak_month">
+    <option value="any">any</option>
+    <option value=">">></option>
+    <option value="<"><</option>
+</select>
+<label>
+    <input id="month_value">
+</label> Количетсво месяцев
+
+<p>Введите позицию</p>
+<div class="ui search" id="position_search">
+    <input class="prompt" style="width: 600px" type="text" placeholder="Позиция...">
+    <div class="results"></div>
+</div>
+<p>Віберите функции:</p>
+<div class="ui search" id="function_search">
+    <input class="prompt" style="width: 600px" type="text" placeholder="Функции...">
+    <div class="results"></div>
+</div>
+<p>Тип судна:</p>
+<div style="margin-left: 50rem;
+    margin-bottom: -30rem;
+    top: 11px;
+    position: absolute;">
+    <select id="type_vessel" multiple="multiple" size="5">
+        <option value="MM">Маломірні суда</option>
+        <option value="MT">Малотонажні судна</option>
+        <option value="any">Суда</option>
+        <option value="S">Самохідні</option>
+    </select>
+</div>
+
+<label>
+    <input id="is_requid" type="checkbox">Is requid
+</label>
+<br>
+
+<select id="znak_capacity">
+    <option value="any">any</option>
+    <option value=">">></option>
+    <option value="<"><</option>
+</select>
+<label><input type="number" id="capacity_value">Enter capacity/валова місткість</label>
+<br>
+<select id="propolsion_znak">
+    <option value="any">any</option>
+    <option value=">">></option>
+    <option value="<"><</option>
+</select>
+<label><input type="number" id="propolsion_value">Enter propolusion/потужність геу</label>
+<br>
+<label>
+<select id="mode_of_navigation" multiple="multiple" size="10">
+    <option value="any">Any</option>
+    <option value="1">Внутрішні води</option>
+    <option value="2">Портові води</option>
+    <option value="3">Прибережне плавання</option>
+    <option value="4">Далеке плавання</option>
+    <option value="5">Мале плавання</option>
+</select>Mode of navigation
+</label>
+<br>
+<p>Кол-во уровней холоднопродуктнивности</p>
+<label>
+    <input type="radio" name="levels" value="1">
+</label>Один
+<label>
+    <input type="radio" name="levels" value="2">
+</label>Два
+<label>
+    <input type="radio" name="levels" value="any">
+</label>any
+<br>
+<label>
+    <input id="pracical_book" type="checkbox">практическая книга
+</label>
+<button class="btn button" onclick="sendData()">Send</button>
+<br>
+<label>
+    <textarea id="response-finish" rows="20" cols="100">
+
+    </textarea>айди зависимости
+</label>
+<label><textarea id="position_temp" cols="30" rows="3"></textarea>></label>
+<label><textarea id="functions_temp" cols="30" rows="3"></textarea>></label>
+<label><textarea id="type_vessel_temp" cols="30" rows="3"></textarea>></label>
+<p style="color: red; font-size: 18px; display: none" id="error">Что то пошло не так !!!!!!!!!!!!!!!!!!!!!!</p>
+<script>
+    let position = $('#position_search')
+        .search({
+            minCharacters: 0,
+            selectFirstResult: true,
+            maxResults: 30,
+            onSelect: function (result, response) {
+                $('#position_temp').val(JSON.stringify(result));
+            },
+            apiSettings: {
+                onResponse: function (data) {
+                    var maxResults = 30;
+                    var
+                        response = {
+                            results: []
+                        }
+                    ;
+                    //   // translate GitHub API response to work with search
+                    $.each(data, function (index, item) {
+                        {#console.log(item);#}
+                        if (index >= maxResults) {
+                            return false;
+                        }
+                        response.results.push({
+                            title: item.name_ukr,
+                            description: item.id || '',
+                            // url         : 'https://www.google.com/',
+                            //   id: item.id
+                        });
+
+                    });
+                    {#console.log(response);#}
+                    return response;
+                },
+                url: '../exp/query={query}/type=position/',
+            }
+        })
+    ;
+
+    let functions = $('#function_search')
+        .search({
+            minCharacters: 0,
+            selectFirstResult: true,
+            maxResults: 30,
+            onSelect: function (result, response) {
+                $('#functions_temp').val(JSON.stringify(result));
+            },
+            apiSettings: {
+                onResponse: function (data) {
+                    var maxResults = 30;
+                    var
+                        response = {
+                            results: []
+                        }
+                    ;
+                    //   // translate GitHub API response to work with search
+                    $.each(data, function (index, item) {
+                        {#console.log(item);#}
+                        if (index >= maxResults) {
+                            return false;
+                        }
+                        response.results.push({
+                            title: item.name_ukr,
+                            description: item.id || '',
+                            // url         : 'https://www.google.com/',
+                            //   id: item.id
+                        });
+
+                    });
+                    {#console.log(response);#}
+                    return response;
+                },
+                url: '../exp/query={query}/type=functions/',
+            }
+        })
+    ;
+
+    let type_vessel = $('#type_vessel')
+        .search({
+            minCharacters: 0,
+            selectFirstResult: true,
+            maxResults: 30,
+            onSelect: function (result, response) {
+
+                $('#type_vessel_temp').val(JSON.stringify(result));
+            },
+            apiSettings: {
+                onResponse: function (data) {
+                    var maxResults = 30;
+                    var
+                        response = {
+                            results: []
+                        }
+                    ;
+                    //   // translate GitHub API response to work with search
+                    $.each(data, function (index, item) {
+                        {#console.log(item);#}
+                        if (index >= maxResults) {
+                            return false;
+                        }
+                        response.results.push({
+                            title: item.name_ukr,
+                            description: item.id || '',
+                            // url         : 'https://www.google.com/',
+                            //   id: item.id
+                        });
+
+                    });
+                    {#console.log(response);#}
+                    return response;
+                },
+                url: '../exp/query={query}/type=type_vessel/',
+            }
+        })
+    ;
+
+    function sendData() {
+        let znak_month = $('#znak_month').val();
+        let value_month = $('#month_value').val();
+        let position_temp = JSON.parse($('#position_temp').val())['description'];
+        let functions_temp = JSON.parse($('#functions_temp').val())['description'];
+        let type_vessel_temp = JSON.stringify($('#type_vessel').val());
+        let is_req = $('#is_requid').is(':checked');
+        let capacity_znak = $('#znak_capacity').val();
+        let capacity_value = $('#capacity_value').val();
+        let propolsion_znak = $('#propolsion_znak').val();
+        let propolsion_value = $('#propolsion_value').val();
+        let mode_of_navigation = JSON.stringify($('#mode_of_navigation').val());
+        let practical_book = $('#pracical_book').is(':checked');
+        console.log(position_temp);
+        console.log($('#position_temp').val());
+        $.ajax({
+            type:'POST',
+            url: '../get_data2/',
+            data: {
+                'znak_month': znak_month, 'value_month': value_month, 'position_temp': JSON.stringify(position_temp),
+                'functions': functions_temp, 'type_vessel_temp': type_vessel_temp, 'is_req': is_req,
+                'capacity_znak': capacity_znak, 'capacity_value': capacity_value, 'propolsion_znak': propolsion_znak,
+                'propolsion_value': propolsion_value, 'mode_of_navigation': mode_of_navigation,
+                'practical_book': practical_book, 'levels': $('[name="levels"]:checked').val(),
+            },
+            success: function (data) {
+                $('#response-finish').val(JSON.stringify(data));
+            }
+        })
+    }
+</script>
+{#<input>#}
+</body>
+</html>
+

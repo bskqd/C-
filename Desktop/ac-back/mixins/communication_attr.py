@@ -1,0 +1,22 @@
+
+COMMUNICATION_ATTR_CONVERTER = {
+    'sailor.Passport': 'citizen_passport',
+    'sailor.Profile': 'profile',
+    'statement.StatementServiceRecord': 'statement_service_records',
+    'document.Education': 'education',
+    'document.CertificateETI': 'sertificate_ntz',
+    'document.MedicalCertificate': 'medical_sertificate',
+    'sailor.SailorPassport': 'sailor_passport',
+    'statement.StatementSQC': 'statement_dkk',
+    'sailor.DemandPositionDKK': 'demand_position',
+    'document.ProtocolSQC': 'protocol_dkk',
+    'statement.StatementQualification': 'statement_qualification',
+    'document.QualificationDocument': 'qualification_documents',
+    'statement.StatementETI': 'statement_eti',
+    'document.ServiceRecord': 'service_records',
+    'statement.StatementSailorPassport': 'statement_sailor_passport',
+    'statement.StatementMedicalCertificate': 'statement_medical_certificate',
+    'statement.StatementAdvancedTraining': 'statement_advanced_training',
+    'back_office.PacketItem': 'packet_item',
+    'cadets.StudentID': 'students_id',
+}

@@ -1,0 +1,21 @@
+[Unit]
+Description=Beat Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/usr/port_back/
+ExecStartPre=/bin/mkdir -p /tmp/celery/pid/
+ExecStartPre=/bin/chown www-data:www-data -R /tmp/celery/
+
+
+ExecStart=/bin/sh -c '/usr/port_back-env/bin/celery beat -A port_back --pidfile=/tmp/celery/pid/beat.pid --logfile=/var/log/port_back/beat.log --loglevel=INFO'
+
+ExecStop=/bin/sh -c '/usr/port_back-env/bin/celery multi stopwait redis --pidfile=/tmp/celery/pid/pid.pid'
+
+
+[Install]
+WantedBy=multi-user.target
+

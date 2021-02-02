@@ -4,8 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/bskqd/CLionProjects/study/0.1.8.cpp" "/home/bskqd/CLionProjects/study/cmake-build-debug/CMakeFiles/study.dir/0.1.8.cpp.o"
-  "/home/bskqd/CLionProjects/study/0.2.11.cpp" "/home/bskqd/CLionProjects/study/cmake-build-debug/CMakeFiles/study.dir/0.2.11.cpp.o"
   "/home/bskqd/CLionProjects/study/dz_1_z_11.cpp" "/home/bskqd/CLionProjects/study/cmake-build-debug/CMakeFiles/study.dir/dz_1_z_11.cpp.o"
   "/home/bskqd/CLionProjects/study/dz_1_z_4.cpp" "/home/bskqd/CLionProjects/study/cmake-build-debug/CMakeFiles/study.dir/dz_1_z_4.cpp.o"
   "/home/bskqd/CLionProjects/study/main.cpp" "/home/bskqd/CLionProjects/study/cmake-build-debug/CMakeFiles/study.dir/main.cpp.o"

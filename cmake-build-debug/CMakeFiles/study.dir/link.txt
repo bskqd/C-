@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/study.dir/main.cpp.o CMakeFiles/study.dir/new_file.cpp.o CMakeFiles/study.dir/task_3.cpp.o CMakeFiles/study.dir/task_4.cpp.o CMakeFiles/study.dir/dz_1_z_4.cpp.o CMakeFiles/study.dir/dz_1_z_11.cpp.o CMakeFiles/study.dir/0.1.8.cpp.o CMakeFiles/study.dir/0.2.11.cpp.o  -o study 
+/usr/bin/c++ -g CMakeFiles/study.dir/main.cpp.o CMakeFiles/study.dir/new_file.cpp.o CMakeFiles/study.dir/task_3.cpp.o CMakeFiles/study.dir/task_4.cpp.o CMakeFiles/study.dir/dz_1_z_4.cpp.o CMakeFiles/study.dir/dz_1_z_11.cpp.o -o study 

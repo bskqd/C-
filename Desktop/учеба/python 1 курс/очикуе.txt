@@ -1,0 +1,11 @@
+def nemin(x,y):
+    if x>y:
+        return x
+    return y
+def nemin2(y,z):
+    if y>z:
+        return y
+    return z
+x,y,z=[float(d) for d in input().split()]
+a=[nemin(x,y),nemin2(y,z),x+y+z]
+print(min(a))

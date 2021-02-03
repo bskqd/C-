@@ -1,23 +1,26 @@
 #include <cstdio>
-#include <cmath> // floor
+#include <math.h>
 
-int main_1(){
+double def(double x, double y, double z, double k){
+    double A = sqrt((z-x)*(z-x) + (k-y)*(k-y));
+    return A;
+}
 
-    double d;
-    printf("Real number: ");
-    scanf("%lf", &d);
+int main() {
 
-    int z1 = floor(d);
-    printf("\nzila chastyna= %d\n", z1);
+    double a,b,c,d,e,f;
+    scanf("%lf %lf", &a,&b);
+    scanf("%lf %lf", &c,&d);
+    scanf("%lf %lf", &e,&f);
 
-    double d1;
-    d1 = d - z1;
-    printf("drobova chastyna= %lf\n", d1);
+    double A = def(a,b,c,d);
+    double B = def(c,d,e,f);
+    double C = def(e,f,a,b);
 
-    int z2 = ceil(d);
-    printf("[%lf]= %d\n", d, z2);
+    double p = (A + B + C)/2;
 
-    int z3 = round(d);
-    printf("round(%lf)= %d\n", z3);
+    double S = sqrt(p*(p-A)*(p-B)*(p-C));
+
+    printf("%lf", S);
 
 }

@@ -1,2 +1,0 @@
-Помилка в f: division by zero
-Помилка в g: division by zero

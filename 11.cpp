@@ -11,7 +11,7 @@ double power(int k){
     return result;
 }
 
-int main(){
+int main_12452(){
     int n;
     int r = 0;
     printf("Input n: ");

@@ -2,7 +2,7 @@
 
 #include <cstdio>
 
-int main() {
+int main_6() {
 
     double x, y, r, a, b, c;
     int count = 0;

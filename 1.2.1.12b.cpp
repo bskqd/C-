@@ -1,7 +1,7 @@
 // 1.2.1.12б
 #include <stdio.h>
 
-int main() {
+int main_dfasgfhdg() {
     int n, k = 2;
     long double u, v, a1, b1, a, b, sum = 1, sum_ab = 0, fact = 2;
     printf("Input n u v: ");

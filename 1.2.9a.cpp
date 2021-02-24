@@ -1,7 +1,7 @@
 // 1.2.9a
 #include <stdio.h>
 
-int main(){
+int main_1241(){
     double x;
     int n;
     printf("x = ");

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
+int main_214212141(){
     int a = 0, result = 0;
 
     do {

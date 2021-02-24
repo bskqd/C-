@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
+int main_214(){
     double eps = 1.0;
 
     do {

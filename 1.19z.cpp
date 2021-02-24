@@ -22,7 +22,7 @@ double power(double x, int k){
     return result;
 }
 
-int main_124(){
+int main_214112(){
     double x;
     int k;
     printf("x=");

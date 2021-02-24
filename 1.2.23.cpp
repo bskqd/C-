@@ -1,7 +1,7 @@
 // 1.2.23
 #include <stdio.h>
 
-int main_22141362624(){
+int main_14526361(){
     int n, k = 0, i = 0, result = 0;
 
     printf("Input n: ");
@@ -20,7 +20,7 @@ int main_22141362624(){
         if (j != 0 && j != n-1) {
             if (lst[j-1] < lst[j] && lst[j] > lst[j+1]){
                 result++;
-                ++i;
+                ++j;
             }
         }
     }

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
+int main_11(){
 
     double y,x;
     unsigned n;

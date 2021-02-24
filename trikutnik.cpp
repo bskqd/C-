@@ -6,7 +6,7 @@ double def(double x, double y, double z, double k){
     return A;
 }
 
-int main() {
+int main_3() {
 
     double a,b,c,d,e,f;
     scanf("%lf %lf", &a,&b);

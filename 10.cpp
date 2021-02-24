@@ -11,7 +11,7 @@ double power(unsigned k){
     return result;
 }
 
-int main_12412(){
+int main_12412132142(){
     int m;
     unsigned k = 0;
     printf("Input m: ");

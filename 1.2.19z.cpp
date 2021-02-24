@@ -19,7 +19,7 @@ double fact(double x, int k){
     return result_full;
 }
 
-int main(){
+int main_7634524125637(){
     double x;
     int k;
     printf("x=");

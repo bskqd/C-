@@ -1,33 +1,26 @@
 #include <stdio.h>
+#include <math.h>
 
-double power(double x, int k){
-    int i = 1;
-    double result = 1;
+double all_in_one(double x, int k){
+    double y = 1;
+    double power = x;
 
-    while (i <= k){
-        result *= x;
-        i++;
+    for (int i=1;i<=k;++i){
+        y += power;
+        power *= x / (i+1);
     }
-    return result;
+    return y;
 }
 
-int fact(int k){
-    int c = 1, f = 1;
-
-    while (c <= k){
-        f *= c;
-        c++;
-    }
-    return f;
-}
-
-int main(){
-    double x, result = 1;
-    int k, i = 1;
-    scanf("%lf %d", x, k);
-    while (i <= k){
-        result += power(x, i)/ fact(k);
-        i++;
-    }
+int main_235(){
+    double x;
+    unsigned k;
+    printf("Input k: ");
+    scanf("%d\n", &k);
+    do{
+        printf("Input x: ");
+        scanf("%lf", &x);
+    } while (fabs(x) > 1);
+    double result = all_in_one(x, k);
     printf("result: %lf", result);
 }

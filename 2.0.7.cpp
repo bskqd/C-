@@ -4,7 +4,7 @@
 
 double scal_sum(double mas[], double mas2[], double mas3[], int n){
     for(int i = 0; i < n; i++){
-        mas3[i] = (mas[i] + mas2[i]);
+        mas3[i] = mas[i] + mas2[i];
     }
     return true;
 }
@@ -17,9 +17,9 @@ void output(double mas3[], int n){
 }
 
 double scal_mult(double mas[], double mas2[], int n){
-    double mult = 1.0;
+    double mult = 0.0;
     for(int i = 0; i < n; i++){
-        mult += (mas[i] * mas2[i]);
+        mult += mas[i] * mas2[i];
     }
     return mult;
 }

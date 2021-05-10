@@ -1,26 +1,51 @@
-#include <cstdio>
-#include <math.h>
+#include "Vector.h"
 
-double def(double x, double y, double z, double k){
-    double A = sqrt((z-x)*(z-x) + (k-y)*(k-y));
-    return A;
+#include<iostream>
+#include <vector>
+#include <fstream>
+
+using namespace std;
+
+Vector getVector(const string &filename) {
+    vector<double> numbers;
+    ifstream inputFile(filename);
+
+    if (inputFile.good()) {
+        int current_number = 0;
+        while (inputFile >> current_number) {
+            numbers.push_back(current_number);
+        }
+
+        inputFile.close();
+    } else {
+        cout << "Error!";
+        _exit(0);
+    }
+
+    int n = numbers.size();
+
+    auto *vectObj = new double[n];
+
+    for (int i = 0; i < n; ++i) {
+        vectObj[i] = numbers.at(i);
+    }
+    return {n, vectObj};
 }
-
+/*
 int main() {
+    Vector vect1;
+    vect1 = getVector("vector1.txt");
 
-    double a,b,c,d,e,f;
-    scanf("%lf %lf", &a,&b);
-    scanf("%lf %lf", &c,&d);
-    scanf("%lf %lf", &e,&f);
+    Vector vect2;
+    vect2 = getVector("vector2.txt");
 
-    double A = def(a,b,c,d);
-    double B = def(c,d,e,f);
-    double C = def(e,f,a,b);
+    Vector res1;
+    res1 = vect1.crossProduct(vect2);
+    cout << "Cross product: \n";
+    res1.print();
 
-    double p = (A + B + C)/2;
+    double res2 = vect1.scalarProduct(vect2);
 
-    double S = sqrt(p*(p-A)*(p-B)*(p-C));
+    cout << "\nScalar product: " << res2;
+}*/
 
-    printf("%lf", S);
-
-}
